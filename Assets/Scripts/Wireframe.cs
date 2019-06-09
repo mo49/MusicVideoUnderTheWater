@@ -6,18 +6,17 @@ using UnityEngine;
 public class Wireframe : MonoBehaviour
 
 {
-    [SerializeField] AudioSource audioSource;
-
+    private AudioSource audioSource;
     private Material material;
-    private AudioListener audioListener;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        material = GetComponent<Renderer>().material;
+
         MeshFilter mf = GetComponent<MeshFilter>();
         mf.mesh.SetIndices(mf.mesh.GetIndices(0), MeshTopology.Lines, 0);
-
-        material = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
