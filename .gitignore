@@ -61,12 +61,20 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Custom
 Assets/Audio
+Assets/Audio.meta
+Assets/Audios
+Assets/Audios.meta
 Assets/Model
+Assets/Model.meta
 Assets/Models
+Assets/Models.meta
+Assets/Models/Chara/MMD/
+Assets/Models/Chara/MMD.meta
 Assets/Libraries/MMD4Mecanim/
 Assets/Libraries/MMD4Mecanim.meta
 Assets/Libraries/BulletXNA/
 Assets/Libraries/BulletXNA.meta
-Assets/Models/Chara/MMD/
-Assets/Models/Chara/MMD.meta
+Assets/PostProcessing
+Assets/PostProcessing.meta
