@@ -17,6 +17,7 @@ public class Wireframe : MonoBehaviour
 
         MeshFilter mf = GetComponent<MeshFilter>();
         mf.mesh.SetIndices(mf.mesh.GetIndices(0), MeshTopology.Lines, 0);
+        Debug.Log(mf.mesh.GetTopology(0));
     }
 
     // Update is called once per frame

@@ -28,7 +28,12 @@
 					float3 n = UnityObjectToWorldNormal(v.normal);
 					// move position forward vertex
 					//o.pos = UnityObjectToClipPos(v.vertex) + float4(n * _SinTime.z * _Displacement, 0);
-					o.pos = UnityObjectToClipPos(v.vertex + v.normal * _SPosAry[clamp((v.vertex.y) * 51, 0, 255)] * _Displacement);
+
+					// 1マス10　x:-50~50 (画角に入っているのは-30~30くらい) 
+					// 傾き＝(255/2) / 画角
+					o.pos = UnityObjectToClipPos(v.vertex + v.normal * _SPosAry[clamp((v.vertex.x) * (255/2)/30 +(255/2), 0, 255)] * _Displacement);
+
+					//o.pos = UnityObjectToClipPos(v.vertex + v.normal * _SPosAry[clamp((v.vertex.y) * (255/20), 0, 255)] * _Displacement);
 					o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
 					return o;
@@ -38,7 +43,7 @@
 				{
 					float4 red = float4(255.0 / 255,70.0 / 255,150.0 / 255,1);
 					float4 blue = float4(90.0 / 255,90.0 / 255,250.0 / 255,1);
-					return lerp(red, blue, i.worldPos.y * 0.5);
+					return lerp(red, blue, i.worldPos.y * 0.5 * _SinTime.z);
 				}
 				ENDCG
 			}
